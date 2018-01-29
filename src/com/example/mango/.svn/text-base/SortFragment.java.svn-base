@@ -1,0 +1,279 @@
+package com.example.mango;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import android.app.Fragment;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.SectionIndexer;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
+
+public class SortFragment extends Fragment{
+	
+	private String[] category = new String[]{"小说","文艺","青春","少儿","生活","工具书","人文社科","教育","科技","管理","励志/成功"};
+	private Context mContext;
+	private List<View> listViews; 
+	private ViewPager mPager;
+	private ImageView cursor;
+	private TextView t1,t2;
+	private int offset = 0;//动画图片的偏移量
+	private int currIndex = 0;//当前页卡的编号
+	private int bmpW;
+	
+	
+	
+	
+	public interface MyListener
+	{
+		public void showMessage(int index);
+	}
+	private MyListener myListener;
+	
+	
+	public void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+	}
+	
+	public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState)
+	{
+		View myView = inflater.inflate(R.layout.sort, container,false);
+		View list01 = inflater.inflate(R.layout.sort_left, container,false);
+		View sortRight = inflater.inflate(R.layout.sort_right, container,false);
+		
+		//return inflater.inflate(R.layout.activity_main, container,false);
+		t1 = (TextView)myView.findViewById(R.id.Letter);
+		t2 = (TextView)myView.findViewById(R.id.Classify);
+		
+		t1.setOnClickListener(new MyOnClickListener(0));
+		t2.setOnClickListener(new MyOnClickListener(1));
+		
+		mPager = (ViewPager)myView.findViewById(R.id.vPager);
+		listViews = new ArrayList<View>();
+		LayoutInflater mInflater = getActivity().getLayoutInflater();
+		
+		List<Map<String, Object>> listItems = new ArrayList<Map<String, Object>>();
+		for(int i =0;i<category.length;i++){
+			Map<String, Object> listItem = new HashMap<String, Object>();
+			listItem.put("category", category[i]);
+			listItems.add(listItem);
+		}
+		
+		ArrayList<String> mItems;
+	//	testIndexableListView mListView;
+		mItems = new ArrayList<String>();
+        mItems.add("abc");
+        mItems.add("ad");
+        mItems.add("dddd");
+        mItems.add("bc");
+        mItems.add("aer");
+        mItems.add("f");
+        mItems.add("fhy");
+        mItems.add("qwe");
+        mItems.add("dihqwo");
+        mItems.add("vnon");
+        mItems.add("zzzqwrt");
+        mItems.add("zzzaaa");
+        mItems.add("zzzsf");
+        mItems.add("zzztiancai");
+        mItems.add("zzzxiaohai");
+        mItems.add("gy"); 
+        mItems.add("lol");
+        Collections.sort(mItems);
+        
+        ContentAdapter adapter = new ContentAdapter(getActivity(),android.R.layout.simple_list_item_1,mItems);
+        //mListView = (testIndexableListView)list01.findViewById(R.id.listview);
+       // mListView.setAdapter(adapter);
+       // mListView.setFastScrollEnabled(true);
+     //   listViews.add(mListView);
+        
+        SimpleAdapter adapter2 = new SimpleAdapter(getActivity(), listItems, R.layout.sort_right_list, new String[]{"category"}, new int[]{R.id.category});
+		ListView list2 = (ListView)sortRight.findViewById(R.id.classifyList);
+		list2.setAdapter(adapter2);
+		listViews.add(sortRight);
+		mPager.setAdapter(new MyPagerAdapter(listViews));
+		mPager.setCurrentItem(0);
+		mPager.setOnPageChangeListener(new OnPageChangeListener() {
+			
+			@Override
+			public void onPageSelected(int arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onPageScrollStateChanged(int arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		
+		/*cursor = (ImageView)myView.findViewById(R.id.cursor);
+		bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.a).getWidth();
+		DisplayMetrics dm = new DisplayMetrics();
+		getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+		int screenW = dm.widthPixels;
+		offset = (screenW / 3 - bmpW)/ 2;
+		Matrix matrix = new Matrix();
+		matrix.postTranslate(offset, 0);
+		cursor.setImageMatrix(matrix);
+		*/
+		return myView;
+		
+		
+	}
+	public class MyOnClickListener implements View.OnClickListener{
+		private int index = 0;
+		
+		public MyOnClickListener(int i){
+			index = i;
+		}
+		public void onClick(View v){
+			mPager.setCurrentItem(index);
+		}
+	}
+	
+	public class MyPagerAdapter extends PagerAdapter {
+		public List<View> mListViews;
+
+		public MyPagerAdapter(List<View> mListViews) {
+			this.mListViews = mListViews;
+		}
+
+		@Override
+		public void destroyItem(View arg0, int arg1, Object arg2) {
+			((ViewPager) arg0).removeView(mListViews.get(arg1));
+		}
+
+		@Override
+		public void finishUpdate(View arg0) {
+		}
+
+		@Override
+		public int getCount() {
+			return mListViews.size();
+		}
+
+		@Override
+		public Object instantiateItem(View arg0, int arg1) {
+			((ViewPager) arg0).addView(mListViews.get(arg1), 0);
+			return mListViews.get(arg1);
+		}
+
+		@Override
+		public boolean isViewFromObject(View arg0, Object arg1) {
+			return arg0 == (arg1);
+		}
+
+		@Override
+		public void restoreState(Parcelable arg0, ClassLoader arg1) {
+		}
+
+		@Override
+		public Parcelable saveState() {
+			return null;
+		}
+
+		@Override
+		public void startUpdate(View arg0) {
+		}
+	}
+	
+	/*public class MyOnPageChangeListener implements OnPageChangeListener {
+
+		int one = offset * 2 + bmpW;
+		int two = one * 2;
+
+		@Override
+		public void onPageSelected(int arg0) {
+			Animation animation = null;
+			switch (arg0) {
+			case 0:
+				if(currIndex == 1)
+			    animation = new TranslateAnimation(one, 0, 0, 0);
+				
+				break;
+			case 1:
+				if (currIndex == 0) {
+					animation = new TranslateAnimation(offset, one, 0, 0);
+				} 
+				break;
+			
+			}
+			currIndex = arg0;
+			animation.setFillAfter(true);
+			animation.setDuration(300);
+			cursor.startAnimation(animation);
+		}
+
+		@Override
+		public void onPageScrolled(int arg0, float arg1, int arg2) {
+		}
+
+		@Override
+		public void onPageScrollStateChanged(int arg0) {
+		}
+	}
+*/
+	public class ContentAdapter extends ArrayAdapter<String> implements SectionIndexer{
+	    	
+	    	private String mSections = "#ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	    	public ContentAdapter(Context context,int textViewResourceId,List<String> objects){
+	    		super(context,textViewResourceId,objects);
+	    	}
+	    	public int getPositionForSection(int section){
+	    		
+	    		for(int i = section;i>=0;i--){
+	    			for(int j =0;j<getCount();j++){
+	    				if(i==0){
+	    					for(int k =0;k<=9;k++){
+	    						//if(StringMatcher.match(String.valueOf(getItem(j).charAt(0)),String.valueOf(k)))
+	    							return j;
+	    					}
+	    				}else{
+	    					//if(StringMatcher.match(String.valueOf(getItem(j).charAt(0)),String.valueOf(mSections.charAt(i))))
+	    						return j;
+	    				}
+	    			}
+	    		}
+	    		return 0;
+	    	}
+	    	
+	    	@Override
+			public int getSectionForPosition(int position) {
+				return 0;
+			}
+
+			@Override
+			public Object[] getSections() {
+				String[] sections = new String[mSections.length()];
+				for (int i = 0; i < mSections.length(); i++)
+					sections[i] = String.valueOf(mSections.charAt(i));
+				return sections;
+			}
+	    	
+	    }
+
+}	

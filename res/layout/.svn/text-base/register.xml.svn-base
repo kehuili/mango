@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/regId"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="24dp"
+            android:layout_toRightOf="@+id/regit1"
+            android:ems="10"
+            android:inputType="textCapCharacters"
+            android:textSize="8pt" />
+
+        <TextView
+            android:id="@+id/regit2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/regname"
+            android:layout_alignBottom="@+id/regname"
+            android:layout_toLeftOf="@+id/regId"
+            android:text="@string/text_regname"
+            android:textSize="8pt" />
+
+        <TextView
+            android:id="@+id/regit3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/regpwd"
+            android:layout_alignBottom="@+id/regpwd"
+            android:layout_toLeftOf="@+id/regId"
+            android:text="@string/text_pwd"
+            android:textSize="8pt" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_alignBottom="@+id/regcode"
+            android:layout_alignRight="@+id/regspwd"
+            android:scaleType="fitXY"
+            android:src="@drawable/menu_background" />
+
+        <TextView
+            android:id="@+id/regit1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/regId"
+            android:layout_alignBottom="@+id/regId"
+            android:layout_alignRight="@+id/regit4"
+            android:gravity="right"
+            android:text="@string/text_id"
+            android:textSize="8pt" />
+
+        <TextView
+            android:id="@+id/regit4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/regspwd"
+            android:layout_alignBottom="@+id/regspwd"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="23dp"
+            android:text="@string/text_spwd"
+            android:textSize="8pt" />
+
+        <TextView
+            android:id="@+id/regit5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="21dp"
+            android:layout_toLeftOf="@+id/regId"
+            android:text="@string/text_code"
+            android:textSize="8pt" />
+
+        <EditText
+            android:id="@+id/regcode"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/regit5"
+            android:layout_alignLeft="@+id/regspwd"
+            android:ems="10"
+            android:inputType="textCapCharacters"
+            android:textSize="8pt" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/regspwd"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/regcode"
+            android:layout_alignLeft="@+id/regpwd"
+            android:layout_marginBottom="18dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textSize="8pt" />
+
+        <EditText
+            android:id="@+id/regpwd"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/regspwd"
+            android:layout_alignLeft="@+id/regname"
+            android:layout_marginBottom="18dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textSize="8pt" />
+
+        <EditText
+            android:id="@+id/regname"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/regId"
+            android:layout_below="@+id/regId"
+            android:layout_marginTop="14dp"
+            android:ems="10"
+            android:inputType="text"
+            android:textSize="8pt" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/reg_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:textSize="7pt"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="65dp"
+            android:layout_toRightOf="@+id/reg_cancel"
+            android:text="@string/text_sub" />
+
+        <Button
+            android:id="@+id/reg_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignBaseline="@+id/reg_sub"
+            android:layout_alignBottom="@+id/reg_sub"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="73dp"
+            android:text="@string/text_cancel"
+            android:textSize="7pt" />
+
+    </RelativeLayout>
+
+</LinearLayout>

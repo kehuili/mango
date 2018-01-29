@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+  
+    <TextView
+         android:id="@+id/catalog"
+         android:layout_marginTop="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/input"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="1.0"
+        android:paddingLeft="10dip"
+        android:paddingTop="5dip"
+        android:paddingBottom="5dip"
+        android:text="A"/>
+    
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_vertical"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingTop="10dip"
+        android:background="@drawable/alfa_focus"
+        android:paddingBottom="10dip"
+ 		 >
+
+        <ImageView 
+         	android:layout_width="70dp"
+         	android:layout_marginLeft="15dp"
+         	android:layout_height="100dp"
+         	android:id="@+id/bookCover"
+         	/>
+		<RelativeLayout
+   		    android:layout_width="wrap_content"
+   		    android:layout_height="fill_parent"
+   		    >
+
+   		    <TextView
+   		        android:id="@+id/bookName"
+   		        android:layout_width="300dp"
+   		        android:layout_height="33dp"
+   		        android:layout_alignParentLeft="true"
+   		        android:layout_alignParentTop="true"
+   		        android:gravity="top|right"
+   		        android:layout_marginRight="20dp"
+   		        android:text="hhhh"
+   		        android:textColor="@color/word"
+   		        android:textSize="30sp" />
+
+   		    <TextView
+   		        android:id="@+id/author"
+   		        android:layout_width="300dp"
+   		        android:layout_height="33dp"
+   		         android:layout_marginRight="20dp"
+   		        android:layout_alignParentLeft="true"
+   		        android:layout_centerVertical="true"
+   		        android:gravity="right"
+   		        android:text="小海"
+   		        android:textColor="@color/word"
+   		        android:textSize="18sp" />
+
+   		    <TextView
+   		        android:id="@+id/bookPrice"
+   		        android:layout_width="300dp"
+   		        android:layout_height="33dp"
+   		         android:layout_marginRight="20dp"
+   		        android:layout_alignParentBottom="true"
+   		        android:layout_alignParentLeft="true"
+   		        android:gravity="right"
+   		        android:text="11111"
+   		        android:textColor="@color/word"
+   		        android:textSize="18sp" />
+   	
+   		</RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

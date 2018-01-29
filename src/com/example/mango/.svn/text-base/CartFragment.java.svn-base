@@ -1,0 +1,148 @@
+package com.example.mango;
+
+import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
+import it.gmariotti.cardslib.library.view.CardListView;
+
+import java.util.ArrayList;
+
+import android.app.Fragment;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.LayoutAnimationController;
+import android.view.animation.TranslateAnimation;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+
+import com.example.widget.CartCard;
+import com.nhaarman.listviewanimations.appearance.AnimationAdapter;
+import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
+import com.nhaarman.listviewanimations.appearance.simple.ScaleInAnimationAdapter;
+
+public class CartFragment extends Fragment{
+	
+	private int[] imageIds = new int[] { R.drawable.icon1, R.drawable.icon2,
+			R.drawable.icon3, R.drawable.icon4 };
+	private String[] names = new String[] { "一本书", "两本书", "三本书", "四本书" };
+	private String[] writers = new String[] { "这是第一本书", "这是第二本书", "这是第三本书",
+			"这是第四本书" };
+	private String[] prices = new String[] { "100", "200", "300", "400" };
+	CheckBox one = null;
+	CheckBox all = null;
+	/*ListView list = null;*/
+	
+	CardListView list = null;
+	
+	Button sub = null;
+	
+	public CartFragment(){
+		
+	}
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		View rootView = inflater.inflate(R.layout.cart, container, false);
+		/*List<Map<String, Object>> listItems = new ArrayList<Map<String, Object>>();
+		for (int i = 0; i < names.length; i++) {
+			Map<String, Object> listItem = new HashMap<String, Object>();
+			listItem.put("headers", imageIds[i]);
+			listItem.put("bookName", names[i]);
+			listItem.put("bookWriter", writers[i]);
+			listItem.put("bookPrice","$"+ prices[i]);
+			listItems.add(listItem);
+		}
+		CartAdapter adapter = new CartAdapter(listItems,getActivity());
+		list = (ListView) rootView.findViewById(R.id.cart_list);
+		list.setLayoutAnimation(getAnimationController());
+		
+		list.setAdapter(adapter);*/
+		ArrayList<Card> cards = new ArrayList<Card>();
+        for (int i=0;i<50;i++){
+            CartCard card = new CartCard(this.getActivity());
+            card.setTitle("Application example "+i);
+            card.setSecondaryTitle("A company inc..."+i);
+            card.setPrice("$100"+i);
+            card.count=i;
+
+            //Only for test, change some icon
+
+            card.init();
+            card.setBackgroundResourceId(R.drawable.card_alfa);
+            cards.add(card);
+        }
+        CardArrayAdapter mCardArrayAdapter = new CardArrayAdapter(getActivity(),cards);
+
+        list = (CardListView) rootView.findViewById(R.id.cart_list);
+        if (list!=null){
+//            list.setAdapter(mCardArrayAdapter);
+        	AnimationAdapter animCardArrayAdapter = new ScaleInAnimationAdapter(mCardArrayAdapter);
+            animCardArrayAdapter.setAbsListView(list);
+            list.setExternalAdapter(animCardArrayAdapter,mCardArrayAdapter);
+        }
+        
+		one = (CheckBox)rootView.findViewById(R.id.cart_checkOneBox);
+		all = (CheckBox) rootView.findViewById(R.id.cart_checkAllBox);
+
+		all.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton box, boolean isChecked) {
+				// TODO Auto-generated method stub
+				if (!isChecked) {
+					for (int index = 0; index < list.getChildCount(); index++) {
+						LinearLayout layout = (LinearLayout) list.getChildAt(index);
+						CheckBox checkBox = (CheckBox) layout.findViewById(R.id.cart_checkOneBox);
+						checkBox.setChecked(false);
+					}
+				} else {
+					for (int index = 0; index < list.getChildCount(); index++) {
+						LinearLayout layout = (LinearLayout) list.getChildAt(index);
+						CheckBox checkBox = (CheckBox) layout.findViewById(R.id.cart_checkOneBox);
+						checkBox.setChecked(true);
+					}
+				}
+			}
+		});
+		sub = (Button) rootView.findViewById(R.id.btn_sub);
+		sub.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(getActivity(),SubActivity.class);
+	    		startActivity(intent);
+			}
+		});
+		return rootView;
+	}
+	
+	protected LayoutAnimationController getAnimationController() {  
+        int duration=300;  
+        AnimationSet set = new AnimationSet(true);  
+  
+        Animation animation = new AlphaAnimation(0.0f, 1.0f);  
+        animation.setDuration(duration);  
+        set.addAnimation(animation);  
+  
+        animation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,  
+                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,  
+                -1.0f, Animation.RELATIVE_TO_SELF, 0.0f);  
+        animation.setDuration(duration);  
+        set.addAnimation(animation);  
+  
+        LayoutAnimationController controller = new LayoutAnimationController(set, 0.5f);  
+        controller.setOrder(LayoutAnimationController.ORDER_NORMAL);  
+        return controller;  
+    }  
+	
+}

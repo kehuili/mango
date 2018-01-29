@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="115dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical" >
+
+    <CheckBox
+        android:id="@+id/cart_checkOneBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <ImageView
+        android:id="@+id/cart_bookImg"
+        android:layout_width="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="match_parent"
+         />
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/cart_name"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.93"
+            android:gravity="center"
+            android:textColor="@color/word"
+            android:text="一本书"
+            android:textSize="10pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/cart_writer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/word"
+            android:layout_weight="0.98"
+            android:text="这是第一本书" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cart_listnum"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+     	>
+
+        <TextView
+            android:id="@+id/cart_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.24"
+            android:gravity="center"
+            android:text="$2323"
+            android:textColor="@color/word"
+            android:textSize="12pt"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:src="@drawable/minus"
+                android:id="@+id/btn_down"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:background="@drawable/alfa"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
+            <EditText
+                android:id="@+id/cart_number"
+                android:text="0"
+                android:layout_weight="0.1"
+                android:textSize="8pt"
+                android:inputType="number"
+                android:textColor="@color/word"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+			
+            <ImageButton
+                android:src="@drawable/plus"
+                android:id="@+id/btn_up"
+                android:scaleType="centerInside"
+                android:background="@drawable/alfa"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="5dp" />
+            
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

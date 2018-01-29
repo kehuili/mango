@@ -1,0 +1,86 @@
+10
+
+dir
+0
+https://10.3.0.201/svn/DangDangClient003/%E6%95%B4%E5%90%88/%E6%BA%90%E7%A0%81/mango/src/com/example/client/utils
+https://10.3.0.201/svn/DangDangClient003
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+ba14f26a-a38c-2847-928a-63a485b7194c
+
+AsyncBitmapLoader.java
+file
+
+
+
+add
+
+ExceptionHandler.java
+file
+
+
+
+add
+
+FileCache.java
+file
+
+
+
+add
+
+HttpUtils.java
+file
+
+
+
+add
+
+JsonParse.java
+file
+
+
+
+add
+
+NetworkUtils.java
+file
+
+
+
+add
+
+e4764182db3edc8c93d110b1d99c92de
+
+
+
+
+
+
+
+
+
+
+
+copied
+https://10.3.0.201/svn/DangDangClient003/%E6%95%B4%E5%90%88/%E6%BA%90%E7%A0%81/mango/src/com/example/utils/NetworkUtils.java
+91
+

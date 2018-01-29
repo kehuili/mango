@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main6"
+    android:orientation="vertical" xmlns:app="http://schemas.android.com/apk/res/com.example.mango">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        
+        android:layout_height="wrap_content"
+        android:background="@drawable/input"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/new_address"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="新增收货地址"
+            android:textColor="#FFFFFF"
+            android:textSize="20dip" />
+
+        <LinearLayout
+            android:id="@+id/new_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical" >
+
+            <LinearLayout
+    
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input"
+                 >
+
+                <ImageView
+                    android:id="@+id/ImageView01"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/aboutus" />
+
+                <ImageView
+                    android:id="@+id/ImageView02"
+                    android:layout_width="1dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#FFFFFF" />
+
+                <EditText
+                    android:id="@+id/add_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="请输入收货人名字"
+                    android:inputType="textPersonName"
+                    android:textCursorDrawable="@null"
+                    android:textSize="8pt" >
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
+			
+            <LinearLayout
+               
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input"
+                >
+
+                <ImageView
+                    android:id="@+id/ImageView01"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/phone" />
+
+                <ImageView
+                    android:id="@+id/ImageView02"
+                    android:layout_width="1dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#FFFFFF" />
+
+                <EditText
+                    android:id="@+id/add_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="请输入收货人的电话或手机号码"
+                    android:inputType="phone"
+                    android:textCursorDrawable="@null"
+                    android:textSize="8pt" >
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
+            
+            <LinearLayout
+              
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input"
+                >
+
+                <ImageView
+                    android:id="@+id/ImageView01"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/dontknow" />
+
+                <ImageView
+                    android:id="@+id/ImageView02"
+                    android:layout_width="1dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#FFFFFF" />
+
+                <EditText
+                    android:id="@+id/add_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="请输入完整的邮政地址"
+                    android:inputType="textPostalAddress"
+                    android:textCursorDrawable="@null"
+                    android:textSize="8pt" >
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/new_add_cancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input"
+                    android:text="取消"
+                    android:textColor="#FFFFFF"
+                    />
+
+                <Button
+                    android:id="@+id/add_sub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input"
+                    android:text="修改"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+		
+        <ProgressBar
+            android:id="@+id/pb_address"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+        
+        <com.fortysevendeg.swipelistview.SwipeListView
+            android:id="@+id/slv_ad"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:divider="@null"
+            android:visibility="gone"
+            app:swipeActionLeft="reveal"
+            app:swipeBackView="@+id/id_back"
+            app:swipeCloseAllItemsWhenMoveList="true"
+            app:swipeFrontView="@+id/id_front"
+            app:swipeMode="left"
+            app:swipeOffsetLeft="200dip"
+            app:swipeOpenOnLongPress="false" >
+        </com.fortysevendeg.swipelistview.SwipeListView>
+
+    </LinearLayout>
+
+</LinearLayout>

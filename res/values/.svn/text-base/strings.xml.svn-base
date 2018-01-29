@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="action_settings">Settings</string>
+	
+    <string name="app_name">Mango</string>
+    <string name="cart_name">购物车</string>
+    <string name="set_name">设置</string>
+    <string name="list_name">排行</string>
+    <string name="sub_name">订单提交</string>
+    <string name="reg_name">注册</string>
+    
+    <string name="text_id">用户名</string>
+    <string name="text_pwd"> 密 码 </string>
+    <string name="text_reg">注册</string>
+    <string name="text_login">登录</string>
+    <string name="text_code">验证码</string>
+    
+    <string name="text_spwd">确认密码</string>
+    <string name="text_regname"> 昵  称 </string>
+    <string name="text_cancel">取消</string>
+    
+    <string name="text_main">首页</string>
+    <string name="text_cart">购物车</string>
+	<string name="text_list">分类</string>
+	<string name="text_love">排行</string>
+	<string name="text_set">设置</string>
+	
+	<string name="btn_sub">结算</string>
+	<string name="cart_menu_clear">清空购物车</string>
+	<string name="text_all">全选</string>
+	<string name="number">0</string>
+	<string name="sub_address">收货地址选择</string>
+	<string name="sub_logistics">物流方式选择</string>
+	<string name="sub_pay">支付方式选择</string>
+	<string name="sub_all">总价：$</string>
+	<string name="text_sub">提交</string>
+	<string-array name="a_address">
+	    <item>梅四B518</item>
+	    <item>梅四B519</item>
+	    <item>梅四B520</item>
+	</string-array>
+	<string-array name="a_logistics">
+	    <item>奔奔快递</item>
+	    <item>左小海快递</item>
+	    <item>王思聪专运</item>
+	</string-array>
+	<string-array name="a_pay">
+	    <item>货到付款</item>
+	    <item>支付宝</item>
+	    <item>微信支付</item>
+	</string-array>
+	<string-array name="searchs">
+	    <item>按评分</item>
+	    <item>按销量</item>
+	    <item>按价格</item>
+	</string-array>
+	
+	<string name="text_tab01">字母</string>
+	<string name="text_tab02">销量</string>
+	<string name="text_tab03">评价</string>
+    
+	<string name="book_tab01">书籍</string>
+	<string name="book_tab02">目录</string>
+	<string name="book_tab03">试读</string>
+	
+	<string name="set1">  设置</string>
+	<string name="set2">  更换账户</string>
+	<string name="set3">  检查更新</string>
+	<string name="set4">  清除缓存</string>
+	<string name="set5">  无图模式</string>
+	<string name="set6">  退出</string>
+	<string name="set7">  关于</string>
+	<string name="set8">  联系我们</string>
+	<string name="set9">  给我们评价</string>
+	
+	<color name="list">#DEB887</color>
+	<color name="red">#FF0000</color>
+	<color name="word">#FFFFFF</color>
+	<color name="blue">#4F94CD</color>
+    
+	<drawable name="alfa">#00000000</drawable>
+	<drawable name="alfa_nofocus">#20FFFFFF</drawable>
+	<drawable name="alfa_focus">#33FFFFFF</drawable>
+</resources>

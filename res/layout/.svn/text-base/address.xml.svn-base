@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" xmlns:app="http://schemas.android.com/apk/res/com.example.mango">
+	
+    <TextView
+        android:id="@+id/new_address"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/input"
+        android:gravity="center"
+        android:text="新增收货地址"
+        android:textColor="#FFFFFF"
+        android:textSize="20dip" />
+
+    <com.fortysevendeg.swipelistview.SwipeListView
+        android:id="@+id/slv_ad"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:layout_height="match_parent"
+        app:swipeActionLeft="reveal"
+        app:swipeCloseAllItemsWhenMoveList="true"
+        app:swipeFrontView="@+id/id_front"
+        app:swipeMode="left"
+        app:swipeBackView="@+id/id_back"
+        app:swipeOffsetLeft="200dip"
+        app:swipeOpenOnLongPress="false"
+        />
+
+</LinearLayout>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main6"
+    android:orientation="vertical" >
+	
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_top">
+
+        <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+            <Button
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="@drawable/abs__ic_ab_back_holo_dark"
+                    android:id="@+id/returncart"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="10dp"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="7dp"
+                    android:text="订单结算"
+                    android:textSize="24sp"
+                    android:textColor="@color/word"
+                    android:id="@+id/titlebar"
+                    android:layout_gravity="center"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+   
+	
+     <it.gmariotti.cardslib.library.view.CardListView
+        android:id="@+id/sub_list"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_weight="1"
+        android:background="@drawable/alfa" >
+    </it.gmariotti.cardslib.library.view.CardListView>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:textColor="@color/word"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/sub_address"
+            android:textSize="9pt" />
+
+        <Spinner
+            android:id="@+id/spin_address"
+            android:textColor="@color/word"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:entries="@array/a_address" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/word"
+            android:gravity="center_vertical"
+            android:text="@string/sub_logistics"
+            android:textSize="9pt" />
+
+        <Spinner
+            android:id="@+id/spin_logistics"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textColor="@color/word"
+            android:layout_weight="1"
+            android:entries="@array/a_logistics" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        
+        android:layout_weight="3"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:textColor="@color/word"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/sub_pay"
+            android:textSize="9pt" />
+
+        <Spinner
+            android:id="@+id/spin_pay"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:entries="@array/a_pay" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/TextView1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:textColor="@color/word"
+            android:textSize="10pt"
+            android:text="@string/sub_all" />
+
+        <Button
+            android:id="@+id/Button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/word"
+            android:text="@string/text_sub" />
+
+    </RelativeLayout>
+
+</LinearLayout>

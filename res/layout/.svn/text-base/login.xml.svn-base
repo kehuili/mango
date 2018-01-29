@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    android:orientation="vertical"
+    tools:context="com.example.activity.MainActivity$PlaceholderFragment" >
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/reg"
+        android:layout_alignBottom="@+id/reg"
+        android:layout_marginLeft="46dp"
+        android:layout_toRightOf="@+id/reg"
+        android:text="@string/text_login" />
+
+    <EditText
+        android:id="@+id/editId"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_toRightOf="@+id/textView1"
+        android:ems="10"
+        android:inputType="textCapCharacters"
+        android:textSize="8pt" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editPwd"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editId"
+        android:layout_marginTop="14dp"
+        android:layout_toRightOf="@+id/textView1"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textSize="8pt" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editPwd"
+        android:layout_alignBottom="@+id/editPwd"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_toLeftOf="@+id/editPwd"
+        android:text="@string/text_pwd"
+        android:textSize="8pt" />
+
+    <Button
+        android:id="@+id/reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="141dp"
+        android:layout_marginLeft="29dp"
+        android:text="@string/text_reg" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/reg"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="94dp"
+        android:layout_marginLeft="51dp"
+        android:text="@string/text_id"
+        android:textSize="8pt" />
+    
+</RelativeLayout>

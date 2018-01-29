@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:umadsdk="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#00000000"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="@drawable/alfa"
+        umadsdk:gravity="center"
+        umadsdk:orientation="horizontal" >
+
+        <TextView
+            umadsdk:id="@+id/text1"
+            umadsdk:layout_width="60dp"
+            umadsdk:layout_height="25dp"
+            umadsdk:gravity="center"
+            umadsdk:text="销量"
+            umadsdk:background="@drawable/tab_left_focus"
+            umadsdk:textColor="@color/word"
+            umadsdk:textSize="15dip" />
+
+        <TextView
+            umadsdk:id="@+id/text2"
+            umadsdk:layout_width="60dp"
+            umadsdk:layout_height="25dp"
+            umadsdk:background="@drawable/tab_right_nofocus"
+            umadsdk:gravity="center"
+            umadsdk:text="评分"
+            umadsdk:textColor="@color/word"
+            umadsdk:textSize="15dip" />
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:background="#00000000"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" />
+
+</LinearLayout>

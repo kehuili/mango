@@ -1,0 +1,223 @@
+package com.example.mango;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.app.Fragment;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.fortysevendeg.swipelistview.BaseSwipeListViewListener;
+import com.fortysevendeg.swipelistview.SwipeListView;
+
+public class AddressFragment extends Fragment implements OnClickListener {
+
+	private SwipeListView adSLV;
+	protected static final String TAG = "Activity";
+	View adView, dialog = null;
+	Builder builder = null;
+	Button del, mod = null;
+	AlertDialog address = null;
+	/*
+	 * private String[] phone = new String[]
+	 * {"15151815181","15151515151","11111111111","12341223456"}; private
+	 * String[] names = new String[] { "做广药", "王思聪", "回克利", "礼金吧" }; private
+	 * String address = "这是一个风景优美动物众多占地极广的三本学校";
+	 */
+	TextView newAd, newCancel, newSub = null;
+
+	@Override
+	public void onClick(View arg0) {
+		// TODO Auto-generated method stub
+
+		if (builder != null) {
+			address.show();
+		} else {
+			builder = new AlertDialog.Builder(getActivity());
+			builder.setTitle("新增收货地址");
+			builder.setView(dialog);
+			builder.setNegativeButton("取消",
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int arg1) {
+							// TODO Auto-generated method stub
+							dialog.dismiss();
+						}
+					});
+			builder.setPositiveButton("确认",
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int arg1) {
+							// TODO Auto-generated method stub
+							dialog.dismiss();
+						}
+					});
+			address = builder.create();
+			address.show();
+		}
+
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		adView = inflater.inflate(R.layout.address, container, false);
+		dialog = inflater.inflate(R.layout.address_dialog, container, false);
+		newAd = (TextView) adView.findViewById(R.id.new_address);
+		/*
+		 * newCancel = (TextView) adView.findViewById(R.id.new_cancel); newSub =
+		 * (TextView) adView.findViewById(R.id.new_sub);
+		 */
+		newAd.setOnClickListener(this);
+		/*
+		 * newCancel.setOnClickListener(this); newSub.setOnClickListener(this);
+		 */
+
+		/*
+		 * List<Map<String, String>> listItems = new ArrayList<Map<String,
+		 * String>>();
+		 * 
+		 * for (int i = 0; i < names.length; i++) { Map<String, String> listItem
+		 * = new HashMap<String, String>(); listItem.put("addName", names[i]);
+		 * listItem.put("addPhone", phone[i]); listItem.put("addAddress",
+		 * address); listItems.add(listItem); }
+		 */
+		List<String> listItems = new ArrayList<String>();
+		for (int i = 0; i <= 7; i++)
+			listItems.add("澄海小指" + "     " + "16161616161\n" + "死是个大帅哥的哈干啥是个大");
+		adSLV = (SwipeListView) adView.findViewById(R.id.slv_ad);
+		AddressAdapter adapter = new AddressAdapter(getActivity(), listItems,
+				adSLV);
+		adSLV.setAdapter(adapter);
+		adSLV.setSwipeListViewListener(new BaseSwipeListViewListener() {
+			@Override
+			public void onListChanged() {
+				Log.d(TAG, "onListChanged");
+
+				adSLV.closeOpenedItems();
+
+			}
+
+		});
+
+		return adView;
+	}
+
+	public class AddressAdapter extends BaseAdapter {
+
+		// private List<Map<String, String>> mDatas = null;
+		private List<String> mDatas;
+		private LayoutInflater mInflater = null;
+		private SwipeListView mSwipeListView = null;
+
+		public AddressAdapter(Context context, List<String> datas,
+				SwipeListView swipeListView) {
+			this.mDatas = datas;
+			mInflater = LayoutInflater.from(context);
+			mSwipeListView = swipeListView;
+		}
+
+		@Override
+		public int getCount() {
+			return mDatas.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			return mDatas.get(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			return position;
+		}
+
+		@Override
+		public View getView(final int position, View convertView,
+				ViewGroup parent) {
+			convertView = mInflater.inflate(R.layout.address_list, null);
+			/*
+			 * TextView t_name = (TextView)
+			 * convertView.findViewById(R.id.ad_name); TextView t_phone =
+			 * (TextView) convertView.findViewById(R.id.ad_phone); TextView
+			 * t_address = (TextView) convertView.findViewById(R.id.ad_address);
+			 * t_name.setText(mDatas.get(position).get("addName"));
+			 * t_phone.setText(mDatas.get(position).get("addPhone"));
+			 * t_address.setText(mDatas.get(position).get("addAddress"));
+			 */
+			del = (Button) convertView.findViewById(R.id.id_remove);
+			mod = (Button) convertView.findViewById(R.id.id_mod);
+			TextView tv = (TextView) convertView.findViewById(R.id.id_text);
+			tv.setText(mDatas.get(position));
+
+			del.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					mDatas.remove(position);
+					notifyDataSetChanged();
+					/**
+					 * 关闭SwipeListView 不关闭的话，刚删除位置的item存在问题
+					 * 在监听事件中onListChange中关闭，会出现问题
+					 */
+					mSwipeListView.closeOpenedItems();
+				}
+			});
+			mod.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+					if (builder != null) {
+						address.show();
+					} else {
+						builder = new AlertDialog.Builder(getActivity());
+						builder.setTitle("修改收货地址");
+						builder.setView(dialog);
+						builder.setNegativeButton("取消",
+								new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog,
+											int arg1) {
+										// TODO Auto-generated method stub
+										dialog.dismiss();
+									}
+								});
+						builder.setPositiveButton("确认",
+								new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog,
+											int arg1) {
+										// TODO Auto-generated method stub
+										dialog.dismiss();
+									}
+								});
+						address = builder.create();
+						address.show();
+					}
+				}
+			});
+
+			return convertView;
+		}
+
+	}
+
+}

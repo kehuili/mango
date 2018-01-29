@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/alfa"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/bookImg"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="70dp"
+        android:layout_gravity="center_vertical"
+        android:layout_height="100dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            
+            android:textColor="@color/word"
+            android:background="@drawable/alfa"
+            android:text="一本书"
+            android:textSize="8pt" />
+
+        <TextView
+            android:id="@+id/writer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/word"
+            android:background="@drawable/alfa"
+            android:textSize="7pt"
+            android:text="佚名" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/alfa"
+            android:text="$2323"
+            android:textColor="@color/word"
+            android:textSize="12pt"
+            android:textStyle="bold" />
+      
+    </LinearLayout>
+
+</LinearLayout>

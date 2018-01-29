@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal" >
+    <RelativeLayout
+            android:layout_width="0dp"
+            android:id="@+id/home"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/alfa" >
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/text_main"
+                android:scaleType="fitCenter"
+                android:src="@drawable/home"
+                android:background="@drawable/alfa" />
+
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" 
+        android:background="@drawable/alfa">
+
+        <ImageView
+            android:id="@+id/img4"
+            android:background="@drawable/alfa"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/text_love"
+            android:scaleType="fitCenter"
+            android:src="@drawable/list" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/sort"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/alfa" >
+
+        <ImageView
+            android:id="@+id/img3"
+            android:layout_width="30dp"
+            android:background="@drawable/alfa"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/text_list"
+            android:scaleType="fitCenter"
+            android:src="@drawable/sort" />
+
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:id="@+id/cart"
+            android:layout_height="match_parent"
+            android:layout_weight="1" 
+            android:background="@drawable/alfa">
+
+            <ImageView
+                android:id="@+id/img2"
+                android:layout_width="30dp"
+                android:background="@drawable/alfa"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/text_cart"
+                android:scaleType="fitCenter"
+                android:src="@drawable/cart" />
+
+            
+        </RelativeLayout>
+
+</LinearLayout>
